@@ -10,7 +10,7 @@ description = ""
 author="Carlo Gilmar Padilla Santana"
 +++
 
-Recently we use the project **Vertx** for develop a project. Now I'm going to talk about the basic functionality.
+Recently we used the project **Vertx** for develop a project. Now I'm going to talk about the basic functionality.
 
 > VertX is a tool-kit for building reactive applications on the **JVM**.
 
