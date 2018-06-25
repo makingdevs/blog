@@ -6,7 +6,8 @@ pipeline{
 
 		stage('Checkout Submodules') {
 			steps{
-        sh 'git submodule update'
+        //sh 'git submodule update'
+        sh 'pwd'
         //checkout scm: [
         //        $class: 'GitSCM',
         //        branches: scm.branches,
@@ -25,7 +26,7 @@ pipeline{
 
     stage('Updating submodules'){
       steps{
-        sh 'git submodule update'
+        sh 'git submodule update --init --recursive'
       }
     }
 
