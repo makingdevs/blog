@@ -29,6 +29,14 @@ pipeline{
       }
     }
 
+    stage('Making ls'){
+      steps{
+        sh 'ls -la'
+        sh 'ls -la themes/themes'
+        sh 'ls public'
+      }
+    }
+
   }
 
   post{
