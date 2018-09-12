@@ -71,6 +71,29 @@ Lo pongo así con fines demostrativos, por que la función `Application.get_env/
 
 ## Pruebas dentro de la aplicación
 
+La situación ahora es comprobar que el comportamiento de mi aplicación, especialmente un *GenServer*, en donde tengo un colaborador el cual quiero saber que es invocado. El módulo de prueba es algo cómo:
+
+{{<highlight elixir>}}
+defmodule App.Manager do
+
+  @timeout 60000
+
+  def send_command(command_id, collaborator_action \\ RealModuleOperation) when is_number(command_id) do
+    :poolboy.transaction(
+      App.SomeServer.Pool,
+      fn pid ->
+        GenServer.cast(pid, {:send_command, command_id, collaborator_action}) # Módulo colaborador
+      end,
+      @timeout
+    )
+  end
+
+end
+{{</highlight>}}
+
+Lo que me gustó aquí fue la posibilidad de enviar el segundo parámetro de la función `send_command` con un valor por defecto, el cuál, es el módulo que tiene la lógica real que quiero ejecutar y me ayudará a enviarle cualquier otro código que quiera ejecutar cómo módulo. Por ejemplo en una prueba podría hacer algo cómo:
+
+
 
 
 [1]: https://github.com/electricshaman/picam
