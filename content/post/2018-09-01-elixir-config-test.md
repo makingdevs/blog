@@ -93,7 +93,34 @@ end
 
 Lo que me gustó aquí fue la posibilidad de enviar el segundo parámetro de la función `send_command` con un valor por defecto, el cuál, es el módulo que tiene la lógica real que quiero ejecutar y me ayudará a enviarle cualquier otro código que quiera ejecutar cómo módulo. Por ejemplo en una prueba podría hacer algo cómo:
 
+{{<highlight elixir>}}
+defmodule App.ManagerTest do
+  use App.RepoCase
 
+  alias App.Manager
 
+  test "make an invocation" do
+
+    ## NOTE: Register for scope inside the module
+    Process.register self(), :manager_test
+    defmodule OperationFake do
+      def collaboration_call(_some_model) do
+        send :manager_test, :send_confirmation
+      end
+    end
+
+    Manager.send_command(1, OperationFake)
+
+    assert_received :send_confirmation
+  end
+end
+{{</highlight>}}
+
+Puedo enviarle un módulo declarado en línea, el cuál, registra el proceso actual para poder enviar un mensaje, y gracias a `assert_received` asegurar a que efectivamente ese elemento fue invocado.
+
+Esto lo tomé en base al artículo de José Valim de nombre: [Mocks and explicit contracts][2]
+
+Seguramente hay más formas de hacer simulación de componentes y/o ejecutar elementos por ambiente, sin embargo estas son las formas que de primera mano me han servido.
 
 [1]: https://github.com/electricshaman/picam
+[2]: http://blog.plataformatec.com.br/2015/10/mocks-and-explicit-contracts/
