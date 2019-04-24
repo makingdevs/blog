@@ -1,21 +1,21 @@
 +++
 tags = ["vim", "developer tools"]
-draft = true
+draft = false
 date = "2019-04-20"
 title = "Meet Vim Sessions"
 description = "Meet Vim Sessions one handy tool for switching between projects and branches without loosing your current work"
 author="sohjiro"
 +++
 
-A few weeks ago, while I was tracking and debugging a system in which I'm currently working. The client told me that another part of the system was having troubles.
+A few weeks ago, while I was tracking and debugging a system in which I'm currently working, the client told me that another part of the system was having troubles.
 
 Suddenly, I'm on verge of close all the **Vim**'s buffer I've just opened because I need to switch branches meaning that I need a way to know in which files I was working before closing them.
 
-Needless to say, it was hard to found those files and I even haven't make a change in them (I have just found them) Additionally, is a huge project with a lot of micro projects so, at this point, I didn't know in which project I was working (I know my mistake).
+Needless to say, it was hard to found those files and I even haven't made a change in them (I have just found them) Additionally, is a huge project with a lot of micro projects so, at this point, I didn't know in which project I was working (I know my mistake).
 
-With this in mind, I have a couple of options to keep them however many of them implies to write the name of the files or services and to be honest I don't want to maintain another file, at least not in that way.
+With this in mind, I have a couple of options to keep them. However, many of them implies to write the name of the files or services and to be honest I don't want to maintain another file, at least not in that way.
 
-In that moment I remember an _unknown_ feature in **Vim** or at least the less used, I barely know one or three people that already knew about it.
+In that moment, I remembered an _unknown_ feature in **Vim** or at least the less used, which I barely know one or three people that already knew about it.
 
 That feature is _**Sessions**_
 
@@ -25,11 +25,11 @@ That feature is _**Sessions**_
 
 Before going further, you need to know that a `session` is a collection of something called `views` and at the same time a `view` is a collection of something, in this case settings that apply to one window. Believe or not, you can save a `View` (collection of settings) and when you restore it later, the text is displayed in the same way. Options, mappings and everything else will also be restored. That means that you can continue editing like when the `View` was saved.
 
-If you read carefully, you might figure out the behavior of a `session` if not, don't be afraid and let me explain it you.
+If you read carefully, you might figure out the behavior of a `session`; if not, don't be afraid and let me explain it you.
 
-And a `session` is the same but for `views` i.e. a `session` keeps the `Views` for all windows with its settings and the global ones. When you save a `session` and restore it later the window layout will looks the same. You can use this for quickly switch between different projects (or in my case, branches). With this, you can automatically load the files you were last working in that project (or branch).
+And a `session` is the same but for `views` i.e. a `session` keeps the `Views` for all windows with its settings and the global ones. When you save a `session` and restore it later, the window layout will looks the same. You can use this for quickly switch between different projects (or in my case, branches). With this, you can automatically load the files you were last working in that project (or branch).
 
-But, How do I use? Well, that's one of the easies thing to do in Vim (weird, isn't it?) Just need to run the next command and that's all.
+But, How do I use it? Well, that's one of the easies thing to do in Vim (weird, isn't it?) Just need to run the next command and that's all.
 
 ![][1]
 
