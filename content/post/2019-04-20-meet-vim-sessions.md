@@ -1,5 +1,5 @@
 +++
-tags = ["vim", "developer tools"]
+tags = ["vim", "developer tools", "sessions"]
 draft = false
 date = "2019-04-20"
 title = "Meet Vim Sessions"
