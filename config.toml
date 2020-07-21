@@ -1,4 +1,4 @@
-baseurl = "http://blog.makingdevs.com/"
+baseurl = "https://blog.makingdevs.com/"
 languageCode = "en-us"
 title = "Blog de Making Devs"
 theme="beautifulhugo"
