@@ -1,29 +1,67 @@
 baseurl = "http://blog.makingdevs.com/"
 languageCode = "en-us"
 title = "Blog de Making Devs"
-theme="themes"
-PygmentsStyle="emacs"
-paginate="4"
+theme="beautifulhugo"
+paginate="5"
 disqusShortname = "makingdevs"
+googleAnalytics = "UA-42842883-2"
+enableRobotsTXT = true
+pygmentsStyle = "trac"
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+enableEmoji = true
 
 [permalinks]
 post = ":year/:month/:day/:title"
 
 [params]
-    showglobe = true
-    analytics =  "UA-42842883-2"
+  subtitle = "El código que a veces olvidamos documentar."
+  logo = "images/logo_black.png"
+  rss = true
+  comments = true
+  readingTime = true
+  useHLJS = true
+  selfHosted = true
+  disqusShortname = "makingdevs"
+  googleAnalytics = "UA-42842883-2"
+
+[author]
+  website = "http://makingdevs.com"
+  email = "info@makingdevs.com"
+  facebook = "makingdevs"
+  github = "makingdevs"
+  gitlab = "makingdevs"
+  twitter = "makingdevs"
+  youtube = "makingdevs"
 
 
-    profilepic = "profile.jpeg"
+[[params.bigimg]]
+  src = "../../images/bg_md.png"
+  desc = "{ } with ❤️ "
+  position = "center"
 
-    github = "https://github.com/makingdevs"
-    twitter = "https://twitter.com/makingdevs"
-    email = "info@makingdevs.com"
+# Navbar
+[[menu.main]]
+  name = "Bienvenidos"
+  url = "/2014/07/29/bienvenido-a-makingdevs/"
+  weight = 1
 
-    subtitle = "El código que a veces olvidamos documentar."
+[[menu.main]]
+  name = "Tags"
+  pre = "<i class='fas fa-tags fa-lg'></i>"
+  url = "tags"
+  weight = 4
 
-    # Nav links below the profile picture
- #  [[params.navlinks]]
- #  name = "Bienvenidos"
- #  url = "2015-04-29-bienvenido-a-makingdevs.md"
+[[menu.main]]
+  name = "Categories"
+  pre = '<i class="fas fa-sitemap fa-lg"></i>'
+  url = "categories"
+  weight = 4
+
+[[menu.main]]
+  name = "Archive"
+  pre = '<i class="fas fa-archive fa-lg"></i>'
+  url = "post"
+  weight = 4
 
