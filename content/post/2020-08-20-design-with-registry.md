@@ -9,17 +9,19 @@ tags: ["elixir","otp", "domino", "design"]
 
 Hace tiempo hemos estado construyendo un juego de [Domino](https://domino.makingdevs.com), basándonos sólo en el ecosistema proveído por Erlang/Elixir, y lo que deseo explicar aquí es una segunda parte de los elementos que nos ayudaron a diseñarlo, sólo usando elementos basados en OTP, aquí explico otro de ellos.
 
+Aquí puedes encontrar la primer parte: [Agentes y supervisores en OTP]({{< ref "/post/2020-07-27-agent-and-supervisor-otp.md" >}} "OTP")
+
 # ETS
 
-Cuándo estamos creando procesos de forma dinámica, queremos almacenar una referencia de ellos en alguna parte, y para ello nos sirve [`:ets`](http://erlang.org/doc/man/ets.html); solamente recordar que no se recomienda usar ETS cómo un cache de forma prematura.
+Cuando estamos creando procesos de forma dinámica, queremos almacenar una referencia de ellos en alguna parte, y para ello nos sirve [`:ets`][ets]; solamente recordar que no se recomienda usar [ETS][ets] cómo un cache de forma prematura.
 
-ETS nos permite almacenar valores de Elixir en memoria, para su rápido acceso; en breve los datos son organizados en un conjunto de tablas dinámicas, las cuáles almacenan tuplas. Cada tabla es creada por un proceso y cuándo este termina entonces la tabla se destruye.
+[ETS][ets] nos permite almacenar valores de Elixir en memoria, para su rápido acceso; en breve los datos son organizados en un conjunto de tablas dinámicas, las cuáles almacenan tuplas. Cada tabla es creada por un proceso y cuándo este termina entonces la tabla se destruye.
 
 Existen tipos de tablas y la interface le pertenece a Erlang, sin embargo, ejemplos de este estilo ya vienen en la documentación de Elixir y Erlang, de hecho hay ejemplos de implementaciones de caché y de almacenes con ETS, pero hay una nota al final que sugiere el uso de Registry para dichas tareas.
 
 # Registry
 
-Usaré cómo referencia la documentación de [`Registry`](https://hexdocs.pm/elixir/master/Registry.html) en Elixir, diciendo que:
+Usaré como referencia la documentación de [`Registry`][registry] en Elixir, diciendo que:
 
 > Es un almacén de procesos de llave valor, local, decentralizado y escalable.
 
@@ -172,4 +174,7 @@ TheLiveCounter.Game.get(name)
 
 Y aunque no se manejan explícitamente los procesos, sabemos que están en acción por debajo de dichas llamadas.
 
-Para finalizar, unan de las cosas que ofrece `Registry` es el hecho de que si el proceso termina por cualquier razón, entonces también es elminiado del registro, lo cuál hace más sencilla su manejo.
+Para finalizar, una de las cosas que ofrece `Registry` es el hecho de que si el proceso termina por cualquier razón, entonces también es eliminado del registro, lo cuál hace más sencillo su manejo.
+
+[ets]: https://erlang.org/doc/man/ets.html
+[registry]: https://hexdocs.pm/elixir/master/Registry.html

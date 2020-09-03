@@ -74,7 +74,7 @@ Agent.update(agent, fn game -> Game.increase(game) end) # :ok
 Agent.get(agent, & &1) # %TheLiveCounter.Game{counter: 1, id: 2}
 ```
 
-Una vez hecho esto ya podemos crear varios agentes supervisados que contienen la estructura de `Game`, y podemos manejar cada uno de ellos:
+Enseguida, creamos varios agentes supervisados que contienen la estructura de `Game`, y podemos manejar cada uno de ellos:
 
 ```elixir
 alias TheLiveCounter.Game
